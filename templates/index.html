@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloudera GitHub Screenshot Detection</title>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #logo {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+            socket.on('screenshot_alert', function(data) {
+                alert(data.message);
+                console.log(data.message);
+            });
+        });
+    </script>
+</head>
+<body>
+    <img id="logo" src="https://www.cloudera.com/content/dam/www/marketing/media-kit/logo-assets/cloudera_logo_darkorange.png" alt="Cloudera Logo">
+    <h1>Cloudera GitHub Screenshot Detection</h1>
+    <p>Open the browser console to see logs of screenshot events.</p>
+</body>
+</html>
+
