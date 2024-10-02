@@ -1,0 +1,13 @@
+/* Prevent text selection */
+body {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+  
+/* Disable text highlighting */
+::selection {
+    background: none;
+}
+  
